@@ -15,7 +15,6 @@ A comprehensive Model Context Protocol (MCP) server that provides tools for quer
 - **Scroll**
 - **Blast**
 - **Hyperliquid**
-- **Solana**
 - **Plasma**
 
 ### 🛠️ Available Tools
