@@ -88,9 +88,70 @@ Or add them directly to `config.py`:
 python server.py
 ```
 
-### Using with MCP Clients
+### Using with Claude Desktop
 
-The server provides tools that can be used with MCP-compatible clients like Cursor, Claude Desktop, or other MCP clients.
+To use this MCP server with Claude Desktop, you need to configure it in your Claude Desktop settings:
+
+1. **Open Claude Desktop Settings**
+2. **Go to "Developers" tab**
+3. **Add a new MCP server** with these settings:
+
+```json
+{
+  "mcpServers": {
+    "onchain-mcp": {
+      "command": "python",
+      "args": ["path/to/your/onchain-mcp/server.py"],
+      "env": {
+        "ETHERSCAN_API_KEY": "your_etherscan_api_key"
+      }
+    }
+  }
+}
+```
+
+4. **Replace the path** with your actual server.py location
+5. **Add your API keys** to the environment variables
+6. **Restart Claude Desktop**
+
+### Using with Other MCP Clients
+
+The server provides tools that can be used with MCP-compatible clients like Cursor, or other MCP clients. The server exposes these tools via the MCP protocol.
+
+### How to Use the Tools with Claude
+
+Once configured, you can use the tools directly in your conversations with Claude:
+
+**Example Prompts:**
+- "Get the ETH balance for address 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+- "Check the USDC balance for this address: 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
+- "Analyze this transaction: 0xe3769f745ff477de5853b7410e62d8c0c32ae4f87982928432562dfabe6440eb"
+- "Audit this contract: 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+- "Get the metadata for this token: 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+
+**Available Commands:**
+- `eth_balance_tool` - Check ETH balances
+- `erc20_balance_tool` - Check token balances  
+- `nft_balance_tool` - Check NFT holdings
+- `tx_get_tool` - Analyze transactions
+- `contract_audit_tool` - Audit smart contracts
+- `token_metadata_tool` - Get token information
+- `logs_tool` - Query blockchain events
+
+### Troubleshooting Claude Desktop
+
+**Common Issues:**
+
+1. **Server not starting**: Make sure Python is in your PATH and all dependencies are installed
+2. **API key errors**: Verify your API keys are correct and have sufficient quota
+3. **Network errors**: Check your internet connection and RPC endpoint availability
+4. **Permission errors**: Ensure Claude Desktop has permission to run Python scripts
+
+**Debug Steps:**
+1. Test the server manually: `python server.py`
+2. Check Claude Desktop logs for error messages
+3. Verify the server path in your MCP configuration
+4. Ensure all environment variables are set correctly
 
 ## API Documentation
 
