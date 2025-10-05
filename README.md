@@ -38,7 +38,7 @@ A comprehensive Model Context Protocol (MCP) server that provides tools for quer
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/onchain-mcp.git
+   git clone https://github.com/0xGval/onchain-mcp.git
    cd onchain-mcp
    ```
 
