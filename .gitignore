@@ -56,6 +56,7 @@ Thumbs.db
 logs/
 
 # API Keys and Secrets
+config.py
 config_local.py
 secrets.py
 
